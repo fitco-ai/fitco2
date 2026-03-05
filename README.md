@@ -1,69 +1,54 @@
-# React + TypeScript + Vite
+# Fitco AI 사이즈 추천 위젯
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+현재 이 프로젝트는 방문하는 고객들이 자신에게 맞는 옷 사이즈를 찾을 수 있도록 돕는 **'사이즈 추천 위젯'**입니다. 카페24(Cafe24)와 같은 인터넷 쇼핑몰 사이트 안에 한 부분으로 들어가서(임베디드) 자연스럽게 작동하게 됩니다.
 
-Currently, two official plugins are available:
+## 어떤 기능을 하나요?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+이 프로그램은 쇼핑몰 방문자가 클릭 한 번으로 손쉽게 자신의 사이즈를 찾고, 쇼핑몰 사장님들에게는 의미 있는 데이터를 제공하도록 만들어졌습니다.
 
-## Expanding the ESLint configuration
+- **사이즈 추천 기능**: 사용자가 자신에게 꼭 맞는 정확한 옷 사이즈를 추천받아 반품률을 줄이고 만족도를 높일 수 있도록 도와줍니다.
+- **관련 통계 및 분석 (애널리틱스)**: 고객들이 주로 어떤 사이즈를 찾는지, 어떤 체형이 많은지 등을 분석해 비즈니스 데이터로 활용할 수 있게 합니다.
+- **알아서 화면에 나타나는 마법**: 복잡한 설치 과정 없이 쇼핑몰 페이지에 하나의 파일만 넣으면, 화면의 적절한 위치에 위젯 아이콘과 창이 알아서 나타납니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 어떻게 작동하는 걸까요?
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+이 프로그램이 어떤 구조로 튼튼하게 만들어져 있는지 간단히 소개합니다.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **부드러운 화면 이동**: 최신 웹 기술(React)을 사용하여 버튼을 누르거나 화면을 넘길 때 앱처럼 빠르고 끊김 없이 부드럽게 움직입니다.
+- **똑똑한 기억력**: 쇼핑몰 회원의 정보, 이전에 구매했던 주문 기록, 한 번 추천받았던 사이즈 결과 등을 안전하게 기억하고 있다가 필요할 때 바로 꺼내서 보여줍니다.
+- **하나의 완성된 파일**: 수많은 코드들을 하나로 똑똑하게 압축하여, 흩어져있는 여러 파일이 아닌 단 하나의 스크립트 파일(`fitcoai.js`)로 묶어 배포하기 쉽게 만들어줍니다.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 컴퓨터에서 화면을 띄워보고 싶다면?
+
+이 프로그램 코드를 다운로드해서 내 컴퓨터 화면에 직접 띄워보고 싶다면, 터미널(검은색 명령창)에서 아래 순서대로 입력하시면 됩니다. 
+(단, 컴퓨터에 `pnpm`이라는 명령어 프로그램이 먼저 설치되어 있어야 합니다.)
+
+**1. 부품 설치하기**  
+먼저 위젯을 띄우는 데 필요한 기본 부품들을 다운로드합니다.
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**2. 내 컴퓨터 화면에서 미리보기 (테스트용)**  
+실제 쇼핑몰에 적용하기 전, 내 컴퓨터에 창을 띄워 화면이 어떻게 보이는지 확인해 볼 수 있습니다. (기능을 수정하면 실시간으로 화면이 바뀝니다.)
+```bash
+pnpm dev
+# 또는 pnpm run dev
 ```
+
+**3. 쇼핑몰에 진짜로 올릴 완성본 만들기 (배포용)**  
+디자인과 테스트가 끝난 후, 실제 쇼핑몰 사이트에 넣을 수 있는 '완성 압축 파일'로 만들어주는 명령어입니다.
+```bash
+pnpm build
+# 이 작업이 끝나면 완료된 작업물인 `dist/fitcoai.js` 파일이 만들어집니다.
+```
+
+## 핵심 폴더 위치
+
+폴더 안을 열어보면 복잡해 보이는 파일들이 많지만, 크게 아래 두 공간이 가장 중요합니다.
+
+- **`/src` 폴더**: 화면에 보이는 버튼 모양, 색상 같은 디자인과 "클릭했을 때 데이터 가져오기" 같은 실제 생각(로직)들이 담긴 **핵심 작업 공간**입니다. 
+- **`/dist` 폴더**: 모든 작업이 예쁘게 포장되어 쇼핑몰에 바로 가져다 쓸 수 있는 완성 결과물이 모이는 **출고 대기실**입니다. (컴퓨터에서 `pnpm build`를 해야 나타납니다.)
+
+---
+개발에 대한 지식이 없더라도, 쉽게 완성본을 만들어 여러분의 쇼핑몰(ex. 카페24)에 연결하기만 하면 고객들에게 바로 특별한 사이즈 추천 서비스를 제공할 수 있습니다!
