@@ -84,7 +84,9 @@ export const PRODUCT_CATEGORIES = [
 
 export const TOKEN_NAME = "fitcoai_user";
 
-export const CAFE24_API_VERSION = "2025-06-01";
+// 2025-06-01은 2026-06-01 만료 → 만료 시 "만료 안 된 가장 오래된 버전"으로 조용히
+// 이동하므로 반드시 유효한 버전을 명시할 것. 2026-03-01 만료 예정일: 2027-03-01.
+export const CAFE24_API_VERSION = "2026-03-01";
 export const CAFE24_CLIENT_ID = "AsPkLqczLx8uQuoyNvPzmB";
 
 export const TERMS_OF_SERVICE = `
